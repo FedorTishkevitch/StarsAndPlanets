@@ -17,7 +17,7 @@ public:
 	StarSystem(string starName);
 	~StarSystem();
 	string getName();
-	string setName(string starName);
+	void setName(string starName);
 	string getInfo();
 	void add(Planet planet);
 	void remove(int index);
