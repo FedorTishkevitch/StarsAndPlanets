@@ -18,12 +18,12 @@ StarSystem::StarSystem(string starName) {
 	this->starName = starName;
 }
 StarSystem::~StarSystem() {
-
+	delete[] planets;
 }
 string StarSystem::getName() {
 	return starName;
 }
-string StarSystem::setName(string starName) {
+void StarSystem::setName(string starName) {
 	this->starName = starName;
 }
 string StarSystem::getInfo() {
