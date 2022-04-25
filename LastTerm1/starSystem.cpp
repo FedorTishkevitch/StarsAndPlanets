@@ -26,12 +26,21 @@ string StarSystem::getName() {
 void StarSystem::setName(string starName) {
 	this->starName = starName;
 }
+int StarSystem::getPlanetsNumber() {
+	return planetsNumber;
+}
 string StarSystem::getInfo() {
 	string result = "Star: " + starName + " planets: ";
 	for (int i = 0; i < planetsNumber; i++) {
 		result += to_string(i + 1) + "-" + (planets + i)->getName();
 	}
 	return result;
+}
+Planet StarSystem::getPlanet(int index) {
+	if (index >= 0 && index < planetsNumber) {
+		return *(planets + index);
+	}
+	return Planet();
 }
 void StarSystem::add(Planet planet) {
 	if (planetsNumber < MAX_PLANETS_NUMBER) {
