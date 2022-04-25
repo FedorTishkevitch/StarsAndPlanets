@@ -24,12 +24,18 @@
     <ClCompile Include="starSystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="planetManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="planet.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="starSystem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="planetManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
