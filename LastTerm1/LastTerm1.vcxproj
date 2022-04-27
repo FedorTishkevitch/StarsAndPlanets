@@ -139,12 +139,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="livePlanet.cpp" />
     <ClCompile Include="planet.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="planetManager.cpp" />
     <ClCompile Include="starSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="livePlanet.h" />
     <ClInclude Include="planet.h" />
     <ClInclude Include="planetManager.h" />
     <ClInclude Include="starSystem.h" />
