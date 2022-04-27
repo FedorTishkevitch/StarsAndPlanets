@@ -7,16 +7,12 @@ private:
 	string liveName;
 	int population;
 public:
-	string getLiveName() {
-		return liveName;
-	}
-	void setLiveName(string liveName) {
-		this->liveName = liveName;
-	}
-	int getPopulation() {
-		return population;
-	}
-	void setPopulation(int population) {
-		this->population = population;
-	}
+	LivePlanet();
+	LivePlanet(string name, int age, double mark, string liveName, int population);
+	~LivePlanet();
+	string getLiveName();
+	void setLiveName(string liveName);
+	int getPopulation();
+	void setPopulation(int population);
+	string getInfo();
 };
