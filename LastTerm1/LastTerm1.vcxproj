@@ -151,6 +151,9 @@
     <ClInclude Include="planetManager.h" />
     <ClInclude Include="starSystem.h" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="slot.txt" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

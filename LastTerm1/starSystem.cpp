@@ -32,7 +32,7 @@ int StarSystem::getPlanetsNumber() {
 string StarSystem::getInfo() {
 	string result = "Star: " + starName + " planets: ";
 	for (int i = 0; i < planetsNumber; i++) {
-		result += to_string(i + 1) + "-" + (planets + i)->getName();
+		result += to_string(i + 1) + "-" + (planets + i)->getName() + "; ";
 	}
 	return result;
 }

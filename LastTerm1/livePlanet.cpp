@@ -2,14 +2,12 @@
 #include "string"
 
 LivePlanet::LivePlanet() {
-	Planet();
 	liveName = "null";
 	population = 0;
 }
-LivePlanet::LivePlanet(string name, int age, double mark, string liveName, int population) {
-	Planet(name, age, mark);
-	liveName = "null";
-	population = 0;
+LivePlanet::LivePlanet(string name, int age, double mark, string liveName, int population):Planet(name, age, mark) {
+	this->liveName = liveName;
+	this->population = population;
 }
 LivePlanet::~LivePlanet() {
 

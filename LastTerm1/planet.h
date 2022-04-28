@@ -11,7 +11,7 @@ private:
 	double mass;
 public:
 	Planet();
-	Planet(string name, int age, double mark);
+	Planet(string name, int sattelitesNumber, double mass);
 	~Planet();
 	string getName();
 	void setName(string name);
