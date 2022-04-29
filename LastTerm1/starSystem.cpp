@@ -17,8 +17,25 @@ StarSystem::StarSystem(string starName, int planetsNumber, Planet* planets) {
 StarSystem::StarSystem(string starName) {
 	this->starName = starName;
 }
+StarSystem::StarSystem(const StarSystem& starSystem) {
+	this->starName = starSystem.starName;
+	this->planetsNumber = starSystem.planetsNumber;
+	this->planets = new Planet[starSystem.planetsNumber];
+	for (int i = 0; i < planetsNumber; i++) {
+		*(this->planets + i) = *(starSystem.planets + i);
+	}
+}
 StarSystem::~StarSystem() {
 	delete[] planets;
+}
+void StarSystem::setStarSystem(StarSystem starSystem) {
+	this->starName = starSystem.getName();
+	this->planetsNumber = starSystem.getPlanetsNumber();
+	int planetsNumber = starSystem.getPlanetsNumber();
+	this->planets = new Planet[planetsNumber];
+	for (int i = 0; i < planetsNumber; i++) {
+		*(this->planets + i) = starSystem.getPlanet(i);
+	}
 }
 string StarSystem::getName() {
 	return starName;

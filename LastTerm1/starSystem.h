@@ -1,3 +1,4 @@
+#pragma once
 #include <iostream>
 #include <string>
 #include "planet.h"
@@ -15,7 +16,9 @@ public:
 	StarSystem();
 	StarSystem(string starName, int planetsNumber, Planet* planets);
 	StarSystem(string starName);
+	StarSystem(const StarSystem& starSystem);
 	~StarSystem();
+	void setStarSystem(StarSystem starSystem);
 	string getName();
 	void setName(string starName);
 	int getPlanetsNumber();

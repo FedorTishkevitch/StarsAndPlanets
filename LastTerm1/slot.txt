@@ -1,6 +1,5 @@
-AlfaCentauri
-2
-Pandora
-0 1
-Polifem
-5 8
+tefed
+1
+trunus
+1
+1
