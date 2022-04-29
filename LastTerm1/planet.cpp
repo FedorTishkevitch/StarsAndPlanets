@@ -17,6 +17,11 @@ Planet::Planet(string name, int sattelitesNumber, double mass) {
 Planet::~Planet() {
 
 }
+void Planet::setPlanet(string name, int sattelitesNumber, double mass) {
+	this->name = name;
+	this->sattelitesNumber = sattelitesNumber;
+	this->mass = mass;
+}
 string Planet::getName() {
 	return name;
 }

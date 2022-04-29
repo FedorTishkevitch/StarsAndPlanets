@@ -13,6 +13,7 @@ public:
 	Planet();
 	Planet(string name, int sattelitesNumber, double mass);
 	~Planet();
+	void setPlanet(string name, int sattelitesNumber, double mass);
 	string getName();
 	void setName(string name);
 	int getSattelitesNumber();

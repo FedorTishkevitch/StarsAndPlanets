@@ -2,6 +2,7 @@
 #include "planet.h"
 #include "starSystem.h"
 #include "planetManager.h"
+#include "livePlanet.h"
 #include "fstream"
 
 using namespace std;
@@ -48,7 +49,7 @@ int main() {
 				cin >> planetName;
 				cout << "enter sattelites number: ";
 				cin >> sattelitesNumber;
-				cout << "enter mass: ";
+				cout << "enter mass (1 = 1 earth mass): ";
 				cin >> mass;
 				Planet planet(planetName, sattelitesNumber, mass);
 				newSystem.add(planet);
@@ -77,7 +78,7 @@ int main() {
 				cin >> planetName;
 				cout << "enter sattelites number: ";
 				cin >> sattelitesNumber;
-				cout << "enter mass: ";
+				cout << "enter mass (1 = 1 earth mass): ";
 				cin >> mass;
 				Planet planet(planetName, sattelitesNumber, mass);
 				curSystem.add(planet);

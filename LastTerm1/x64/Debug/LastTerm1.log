@@ -1,2 +1,7 @@
-﻿  main.cpp
+﻿  livePlanet.cpp
+  main.cpp
+  planet.cpp
+  planetManager.cpp
+  starSystem.cpp
+  Создание кода...
   LastTerm1.vcxproj -> C:\Users\Asus.LAPTOP-78EUHOP1\Desktop\посольство гитхаба\StarsAndPlanets\x64\Debug\LastTerm1.exe
