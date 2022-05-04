@@ -12,9 +12,31 @@ double PlanetManager::calculateAvgMass(StarSystem starSystem) {
 	return mass / planetsNumber;
 }
 
-StarSystem PlanetManager::readStarSystem(string path) {
+string PlanetManager::getStarList(string path) {
 	ifstream file;
 	file.open(path);
+	string result = "";
+	int count = 1;
+	while (!file.eof()) {
+		string starName;
+		getline(file, starName);
+		result += to_string(count) + " " + starName + "\n";
+		getline(file, starName);
+		count++;
+	}
+	return result;
+}
+
+StarSystem PlanetManager::readStarSystem(string path, int index) {
+	ifstream file;
+	file.open(path);
+	int count = 1;
+	while (count < index && !file.eof()) {
+		string str;
+		getline(file, str);
+		getline(file, str);
+		count++;
+	}
 	if (!file.eof()) {
 		string starName;
 		int planetsNumber;
@@ -36,15 +58,24 @@ StarSystem PlanetManager::readStarSystem(string path) {
 }
 
 void PlanetManager::saveStarSystem(StarSystem starSystem, string path) {
+	ifstream oldFile;
+	oldFile.open(path);
+	string oldSaves;
+	while (!oldFile.eof()) {
+		string str;
+		getline(oldFile, str);
+		oldSaves += str + "\n";
+	}
 	ofstream file;
 	file.open(path);
+	file << oldSaves;
 	int planetsNumber = starSystem.getPlanetsNumber();
-	file << starSystem.getName() << "\n";
-	file << planetsNumber << "\n";
+	file << starSystem.getName() << " \n";
+	file << planetsNumber << " ";
 	for (int i = 0; i < planetsNumber; i++) {
 		Planet planet = starSystem.getPlanet(i);
-		file << planet.getName() << "\n";
-		file << planet.getSattelitesNumber() << "\n";
-		file << planet.getMass() << "\n";
+		file << planet.getName() << " ";
+		file << planet.getSattelitesNumber() << " ";
+		file << planet.getMass() << " ";
 	}
 }

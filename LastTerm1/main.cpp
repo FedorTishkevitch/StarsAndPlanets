@@ -12,20 +12,41 @@ int main() {
 	PlanetManager planetManager;
 	char exitChar = 'c';
 	while (exitChar != 'e') {
+		mainMenu:
 		system("cls");
-		cout << "Stars and Planets: \n";
+		cout << "Stars and Planets (work in progres!!!): \n";
 		char chosingChar;
 		cout << "n - new\n";
 		cout << "l - load\n";
+		cout << "e - edit saves\n";
 		cin >> chosingChar;
 		if (chosingChar == 'l') {
-			StarSystem loadedSystem(planetManager.readStarSystem("slot.txt"));
+			int index;
+			cout << "chose:\n";
+			cout << planetManager.getStarList("slot.txt");
+			cin >> index;
+			StarSystem loadedSystem(planetManager.readStarSystem("slot.txt", index));
 			system("cls");
 			cout << loadedSystem.getInfo();
 			curSystem.setStarSystem(loadedSystem);
 			//planetManager.saveStarSystem(loadedSystem, "slot.txt");
 			cout << "\npress any key to continue...";
 			system("pause>nul");
+		}
+		else if (chosingChar == 'e') {
+			char redactorChar = 'c';
+			while (redactorChar != 'e') {
+				system("cls");
+				cout << "r-remove(index):\n";
+				cout << "e-exit:\n";
+				cin >> redactorChar;
+				if (redactorChar == 'r') {
+					cout << "working...";
+				}
+				else {
+					goto mainMenu;
+				}
+			}
 		}
 		else {
 			string starName;
@@ -91,12 +112,10 @@ int main() {
 				curSystem.remove(index);
 			}
 			else if (redactorChar == 's') {
-				system("cls");
-				cout << "clear old save? (s)";
-				cin >> redactorChar;
-				if (redactorChar == 's') {
-					planetManager.saveStarSystem(curSystem, "slot.txt");
-				}
+				planetManager.saveStarSystem(curSystem, "slot.txt");
+				cout << "saved!";
+				cout << "\npress any key to continue...";
+				system("pause>nul");
 			}
 			else if (redactorChar == 'n') {
 				break;

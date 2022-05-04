@@ -6,6 +6,7 @@
 class PlanetManager {
 public:
 	double calculateAvgMass(StarSystem starSystem);
-	StarSystem readStarSystem(string path);
+	string getStarList(string path);
+	StarSystem readStarSystem(string path, int index);
 	void saveStarSystem(StarSystem starSystem, string path);
 };

@@ -1,5 +1,8 @@
 Sun
-1
-earth
-1
-1
+1 earth 1 1
+AlfaCentauri
+2 Polifem 32 29 Pandora 0 1
+sirius 
+0 
+vodolea 
+0 
