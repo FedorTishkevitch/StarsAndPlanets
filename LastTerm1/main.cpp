@@ -14,7 +14,7 @@ int main() {
 	while (exitChar != 'e') {
 		mainMenu:
 		system("cls");
-		cout << "Stars and Planets (work in progres!!!): \n";
+		cout << "Stars and Planets: \n";
 		char chosingChar;
 		cout << "n - new\n";
 		cout << "l - load\n";
@@ -37,11 +37,31 @@ int main() {
 			char redactorChar = 'c';
 			while (redactorChar != 'e') {
 				system("cls");
+				cout << planetManager.getStarList("slot.txt") << "\n";
+				editSavesMenu:
 				cout << "r-remove(index):\n";
+				cout << "s-search:\n";
 				cout << "e-exit:\n";
 				cin >> redactorChar;
 				if (redactorChar == 'r') {
-					cout << "working...";
+					int index;
+					cout << "enter index: ";
+					cin >> index;
+					planetManager.removeStarSystem(index, "slot.txt");
+				}
+				else if (redactorChar == 's') {
+					string starName;
+					cout << "enter star name: ";
+					cin >> starName;
+					string result = planetManager.searchStarSystem(starName, "slot.txt");
+					system("cls");
+					if (result.empty()) {
+						cout << "no results";
+					}
+					else {
+						cout << result;
+					}
+					goto editSavesMenu;
 				}
 				else {
 					goto mainMenu;

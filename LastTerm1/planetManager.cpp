@@ -79,3 +79,59 @@ void PlanetManager::saveStarSystem(StarSystem starSystem, string path) {
 		file << planet.getMass() << " ";
 	}
 }
+
+void PlanetManager::removeStarSystem(int index, string path) {
+	ifstream oldFile;
+	oldFile.open(path);
+	string oldSaves;
+	int curIndex = 1;
+	while (!oldFile.eof() && curIndex < index) {
+		string str;
+		getline(oldFile, str);
+		oldSaves += str + "\n";
+		getline(oldFile, str);
+		if (oldFile.eof()) {
+			oldSaves += str;
+		}
+		else {
+			oldSaves += str + "\n";
+		}
+		curIndex++;
+	}
+	string saveToRemove;
+	getline(oldFile, saveToRemove);
+	getline(oldFile, saveToRemove);
+	while (!oldFile.eof()) {
+		string str;
+		getline(oldFile, str);
+		oldSaves += str + "\n";
+		getline(oldFile, str);
+		if (oldFile.eof()) {
+			oldSaves += str;
+		}
+		else {
+			oldSaves += str + "\n";
+		}
+		curIndex++;
+	}
+	ofstream newFile;
+	newFile.open(path);
+	newFile << oldSaves;
+}
+
+string PlanetManager::searchStarSystem(string searchingStarName, string path) {
+	ifstream file;
+	file.open(path);
+	string result = "";
+	int count = 1;
+	while (!file.eof()) {
+		string starName;
+		getline(file, starName);
+		if (starName.find(searchingStarName) != string::npos) {
+			result += to_string(count) + " " + starName + "\n";
+		}
+		getline(file, starName);
+		count++;
+	}
+	return result;
+}

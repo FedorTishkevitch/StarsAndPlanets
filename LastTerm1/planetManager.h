@@ -9,4 +9,6 @@ public:
 	string getStarList(string path);
 	StarSystem readStarSystem(string path, int index);
 	void saveStarSystem(StarSystem starSystem, string path);
+	void removeStarSystem(int index, string path);
+	string searchStarSystem(string starName, string path);
 };
