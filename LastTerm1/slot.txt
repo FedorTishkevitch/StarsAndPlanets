@@ -3,6 +3,4 @@ vodolea
 Sufer 
 3 Fegga 1 1 Jero 0 1 Polif 5 3 
 Posiflora 
-5 Ciclomen 2 1 Begonia 2 3 Ciperus 1 3 Tradiskancia 3 2 Beladonna 5 2 
-Posiflora 
 6 Ciclomen 2 1 Begonia 2 3 Ciperus 1 3 Tradiskancia 3 2 Beladonna 5 2 Melicca 3 4 

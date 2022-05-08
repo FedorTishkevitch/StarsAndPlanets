@@ -56,7 +56,7 @@ int main() {
 					string result = planetManager.searchStarSystem(starName, "slot.txt");
 					system("cls");
 					if (result.empty()) {
-						cout << "no results";
+						cout << "no results\n";
 					}
 					else {
 						cout << result;
