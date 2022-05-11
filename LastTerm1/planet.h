@@ -10,6 +10,7 @@ private:
 	int sattelitesNumber;
 	double mass;
 public:
+	static const char type = 'p';
 	Planet();
 	Planet(string name, int sattelitesNumber, double mass);
 	~Planet();

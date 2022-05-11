@@ -2,6 +2,7 @@
 #include "starSystem.h"
 #include "planet.h"
 #include "planetManager.h"
+#include "livePlanet.h"
 
 double PlanetManager::calculateAvgMass(StarSystem starSystem) {
 	int planetsNumber = starSystem.getPlanetsNumber();
@@ -44,13 +45,30 @@ StarSystem PlanetManager::readStarSystem(string path, int index) {
 		file >> planetsNumber;
 		StarSystem curSystem(starName);
 		for (int i = 0; i < planetsNumber; i++) {
-			string name;
-			int sattelitesNumber;
-			double mass;
-			file >> name;
-			file >> sattelitesNumber;
-			file >> mass;
-			curSystem.add(Planet(name, sattelitesNumber, mass));
+			char typeChar;
+			cin >> typeChar;
+			if (typeChar == 'l') {
+				string name;
+				int sattelitesNumber;
+				double mass;
+				string liveName;
+				int population;
+				file >> name;
+				file >> sattelitesNumber;
+				file >> mass;
+				file >> liveName;
+				file >> population;
+				curSystem.add(LivePlanet(name, sattelitesNumber, mass, liveName, population));
+			}
+			else {
+				string name;
+				int sattelitesNumber;
+				double mass;
+				file >> name;
+				file >> sattelitesNumber;
+				file >> mass;
+				curSystem.add(Planet(name, sattelitesNumber, mass));
+			}
 		}
 		return curSystem;
 	}
@@ -73,10 +91,23 @@ void PlanetManager::saveStarSystem(StarSystem starSystem, string path) {
 	file << starSystem.getName() << " \n";
 	file << planetsNumber << " ";
 	for (int i = 0; i < planetsNumber; i++) {
-		Planet planet = starSystem.getPlanet(i);
-		file << planet.getName() << " ";
-		file << planet.getSattelitesNumber() << " ";
-		file << planet.getMass() << " ";
+		Planet gettedPlanet = starSystem.getPlanet(i);
+		if (gettedPlanet.type == 'l') {
+			//LivePlanet planet = starSystem.getPlanet(i);
+			//file << "l ";
+			//file << planet.getName() << " ";
+			//file << planet.getSattelitesNumber() << " ";
+			//file << planet.getMass() << " ";
+			//file << planet.getLiveName() << " ";
+			//file << planet.getPopulation() << " ";
+		}
+		else {
+			Planet planet = starSystem.getPlanet(i);
+			file << "p ";
+			file << planet.getName() << " ";
+			file << planet.getSattelitesNumber() << " ";
+			file << planet.getMass() << " ";
+		}
 	}
 }
 

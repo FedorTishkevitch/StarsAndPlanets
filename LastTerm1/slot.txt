@@ -1,6 +1,6 @@
 vodolea 
 0 
 Sufer 
-3 Fegga 1 1 Jero 0 1 Polif 5 3 
+3 p Fegga 1 1 p Jero 0 1 p Polif 5 3 
 Posiflora 
-6 Ciclomen 2 1 Begonia 2 3 Ciperus 1 3 Tradiskancia 3 2 Beladonna 5 2 Melicca 3 4 
+6 p Ciclomen 2 1 p Begonia 2 3 p Ciperus 1 3 p Tradiskancia 3 2 p Beladonna 5 2 p Melicca 3 4 

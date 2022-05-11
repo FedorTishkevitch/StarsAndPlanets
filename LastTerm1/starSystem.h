@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 #include "planet.h"
+#include "livePlanet.h"
 
 using namespace std;
 

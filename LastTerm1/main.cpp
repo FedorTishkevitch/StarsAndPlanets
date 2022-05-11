@@ -83,17 +83,35 @@ int main() {
 				planetsNumber = newSystem.MIN_PLANETS_NUMBER;
 			}
 			for (int i = 0; i < planetsNumber; i++) {
+				char planetTypeChar;
 				string planetName;
 				int sattelitesNumber;
 				double mass;
+				cout << "enter planet type: \n";
+				cout << "p-planet\n";
+				cout << "l-live planet\n";
+				cin >> planetTypeChar;
+				cout << "enter planet type: \n";
 				cout << "enter " << i + 1 << " planet name: ";
 				cin >> planetName;
 				cout << "enter sattelites number: ";
 				cin >> sattelitesNumber;
 				cout << "enter mass (1 = 1 earth mass): ";
 				cin >> mass;
-				Planet planet(planetName, sattelitesNumber, mass);
-				newSystem.add(planet);
+				if (planetTypeChar == 'l') {
+					string liveName;
+					int population;
+					cout << "enter live name: ";
+					cin >> liveName;
+					cout << "enter population: ";
+					cin >> population;
+					LivePlanet livePlanet(planetName, sattelitesNumber, mass, liveName, population);
+					newSystem.add(livePlanet);
+				}
+				else {
+					Planet planet(planetName, sattelitesNumber, mass);
+					newSystem.add(planet);
+				}
 			}
 			cout << newSystem.getInfo();
 			curSystem.setStarSystem(newSystem);
