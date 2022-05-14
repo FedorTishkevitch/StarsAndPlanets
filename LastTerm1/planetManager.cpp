@@ -91,15 +91,15 @@ void PlanetManager::saveStarSystem(StarSystem starSystem, string path) {
 	file << starSystem.getName() << " \n";
 	file << planetsNumber << " ";
 	for (int i = 0; i < planetsNumber; i++) {
-		Planet gettedPlanet = starSystem.getPlanet(i);
-		if (gettedPlanet.type == 'l') {
-			//LivePlanet planet = starSystem.getPlanet(i);
-			//file << "l ";
-			//file << planet.getName() << " ";
-			//file << planet.getSattelitesNumber() << " ";
-			//file << planet.getMass() << " ";
-			//file << planet.getLiveName() << " ";
-			//file << planet.getPopulation() << " ";
+		string gettedPlanetClass = typeid(starSystem.getPlanet(i)).name();
+		if (gettedPlanetClass == "class Live Planet") {
+			LivePlanet planet = starSystem.getPlanet(i);
+			file << "l ";
+			file << planet.getName() << " ";
+			file << planet.getSattelitesNumber() << " ";
+			file << planet.getMass() << " ";
+			file << planet.getLiveName() << " ";
+			file << planet.getPopulation() << " ";
 		}
 		else {
 			Planet planet = starSystem.getPlanet(i);

@@ -14,6 +14,7 @@ int main() {
 	while (exitChar != 'e') {
 		mainMenu:
 		system("cls");
+		cout << typeid(curSystem).name() << "\n";
 		cout << "Stars and Planets: \n";
 		char chosingChar;
 		cout << "n - new\n";

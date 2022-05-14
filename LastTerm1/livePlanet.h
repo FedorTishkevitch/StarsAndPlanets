@@ -7,7 +7,6 @@ private:
 	string liveName;
 	int population;
 public:
-	static const char type = 'l';
 	LivePlanet();
 	LivePlanet(string name, int age, double mark, string liveName, int population);
 	~LivePlanet();
