@@ -24,7 +24,8 @@ public:
 	void setName(string starName);
 	int getPlanetsNumber();
 	string getInfo();
-	Planet getPlanet(int index);
+	Planet getPlanet(int index) const;
+	Planet* getPlanet(int index);
 	void add(Planet planet);
 	void remove(int index);
 };

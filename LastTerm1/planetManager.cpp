@@ -8,7 +8,7 @@ double PlanetManager::calculateAvgMass(StarSystem starSystem) {
 	int planetsNumber = starSystem.getPlanetsNumber();
 	double mass = 0;
 	for (int i = 0; i < planetsNumber; i++) {
-		 mass += starSystem.getPlanet(i).getMass();
+		 mass += starSystem.getPlanet(i)->getMass();
 	}
 	return mass / planetsNumber;
 }
@@ -46,7 +46,7 @@ StarSystem PlanetManager::readStarSystem(string path, int index) {
 		StarSystem curSystem(starName);
 		for (int i = 0; i < planetsNumber; i++) {
 			char typeChar;
-			cin >> typeChar;
+			file >> typeChar;
 			if (typeChar == 'l') {
 				string name;
 				int sattelitesNumber;
@@ -91,22 +91,25 @@ void PlanetManager::saveStarSystem(StarSystem starSystem, string path) {
 	file << starSystem.getName() << " \n";
 	file << planetsNumber << " ";
 	for (int i = 0; i < planetsNumber; i++) {
-		string gettedPlanetClass = typeid(starSystem.getPlanet(i)).name();
-		if (gettedPlanetClass == "class Live Planet") {
-			LivePlanet planet = starSystem.getPlanet(i);
+		//////////////////
+		//cout << gettedPlanetClass << ", class LivePlanet ";
+		//cin >> gettedPlanetClass;
+		//typeid(starSystem.getPlanet(i)) == typeid(LivePlanet)
+		Planet* gotPlanet = starSystem.getPlanet(i);
+		LivePlanet* planet = dynamic_cast<LivePlanet*>(gotPlanet);
+		if (planet) {
 			file << "l ";
-			file << planet.getName() << " ";
-			file << planet.getSattelitesNumber() << " ";
-			file << planet.getMass() << " ";
-			file << planet.getLiveName() << " ";
-			file << planet.getPopulation() << " ";
+			file << planet->getName() << " ";
+			file << planet->getSattelitesNumber() << " ";
+			file << planet->getMass() << " ";
+			file << planet->getLiveName() << " ";
+			file << planet->getPopulation() << " ";
 		}
 		else {
-			Planet planet = starSystem.getPlanet(i);
 			file << "p ";
-			file << planet.getName() << " ";
-			file << planet.getSattelitesNumber() << " ";
-			file << planet.getMass() << " ";
+			file << gotPlanet->getName() << " ";
+			file << gotPlanet->getSattelitesNumber() << " ";
+			file << gotPlanet->getMass() << " ";
 		}
 	}
 }

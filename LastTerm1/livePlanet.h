@@ -14,5 +14,5 @@ public:
 	void setLiveName(string liveName);
 	int getPopulation();
 	void setPopulation(int population);
-	string getInfo();
+	string getInfo() override;
 };

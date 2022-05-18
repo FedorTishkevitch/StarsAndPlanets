@@ -34,7 +34,7 @@ void StarSystem::setStarSystem(StarSystem starSystem) {
 	int planetsNumber = starSystem.getPlanetsNumber();
 	this->planets = new Planet[planetsNumber];
 	for (int i = 0; i < planetsNumber; i++) {
-		*(this->planets + i) = starSystem.getPlanet(i);
+		*(this->planets + i) = *starSystem.getPlanet(i);
 	}
 }
 string StarSystem::getName() {
@@ -53,11 +53,18 @@ string StarSystem::getInfo() {
 	}
 	return result;
 }
-Planet StarSystem::getPlanet(int index) {
+Planet StarSystem::getPlanet(int index) const{
 	if (index >= 0 && index < planetsNumber) {
 		return *(planets + index);
 	}
 	return Planet();
+}
+Planet* StarSystem::getPlanet(int index) {
+	if (index >= 0 && index < planetsNumber) {
+		return (planets + index);
+	}
+	Planet planet;
+	return &planet;
 }
 void StarSystem::add(Planet planet) {
 	if (planetsNumber < MAX_PLANETS_NUMBER) {

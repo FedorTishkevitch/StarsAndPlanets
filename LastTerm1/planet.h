@@ -20,5 +20,5 @@ public:
 	void setSattelitesNumber(int sattelitesNumber);
 	double getMass();
 	void setMass(double mass);
-	string getInfo();
+	virtual string getInfo();
 };

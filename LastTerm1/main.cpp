@@ -7,6 +7,22 @@
 
 using namespace std;
 
+//int main() {
+//	Planet* p = new LivePlanet();
+//	//Planet* p = new Planet();
+//
+//	LivePlanet* lp = dynamic_cast<LivePlanet*>(p);
+//
+//	if (lp) {
+//		cout << "LivePlanet" << endl;
+//	}
+//	else {
+//		cout << "Planet" << endl;
+//	}
+//
+//}
+
+
 int main() {
 	StarSystem curSystem;
 	PlanetManager planetManager;
@@ -91,7 +107,6 @@ int main() {
 				cout << "p-planet\n";
 				cout << "l-live planet\n";
 				cin >> planetTypeChar;
-				cout << "enter planet type: \n";
 				cout << "enter " << i + 1 << " planet name: ";
 				cin >> planetName;
 				cout << "enter sattelites number: ";
@@ -130,17 +145,34 @@ int main() {
 			cin >> redactorChar;
 			if (redactorChar == 'a') {
 				system("cls");
+				char planetTypeChar;
 				string planetName;
 				int sattelitesNumber;
 				double mass;
+				cout << "enter planet type: \n";
+				cout << "p-planet\n";
+				cout << "l-live planet\n";
+				cin >> planetTypeChar;
 				cout << "enter planet name: ";
 				cin >> planetName;
 				cout << "enter sattelites number: ";
 				cin >> sattelitesNumber;
 				cout << "enter mass (1 = 1 earth mass): ";
 				cin >> mass;
-				Planet planet(planetName, sattelitesNumber, mass);
-				curSystem.add(planet);
+				if (planetTypeChar == 'l') {
+					string liveName;
+					int population;
+					cout << "enter live name: ";
+					cin >> liveName;
+					cout << "enter population: ";
+					cin >> population;
+					LivePlanet livePlanet(planetName, sattelitesNumber, mass, liveName, population);
+					curSystem.add(livePlanet);
+				}
+				else {
+					Planet planet(planetName, sattelitesNumber, mass);
+					curSystem.add(planet);
+				}
 			}
 			else if (redactorChar == 'r') {
 				system("cls");
